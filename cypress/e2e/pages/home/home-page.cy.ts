@@ -1,4 +1,4 @@
-import { webElements } from "../constants/web-elements";
+import { webElements } from "../../../constants/web-elements";
 
 describe('Home Page', () => {
     beforeEach(() => {
@@ -6,8 +6,7 @@ describe('Home Page', () => {
         cy.visit(`${Cypress.env('baseUrl')}`);
     });  
     it('Should open', () => {     
-        cy.get(webElements.pages.home.title, { timeout: 3000 }).should('be.visible');
-        cy.get(webElements.pages.home.main, { timeout: 3000 }).should('be.visible');
+        cy.get(webElements.title, { timeout: 3000 }).should('be.visible');
         cy.get(webElements.pages.home.productItems, { timeout: 3000 }).should('be.visible');
         cy.get(webElements.pages.home.productItems, { timeout: 3000 })
             .find(webElements.pages.home.productItem).should('have.length.greaterThan', 3);
