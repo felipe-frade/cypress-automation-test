@@ -5,8 +5,9 @@ describe('Home Page', () => {
         // https://magento.softwaretestingboard.com - see cypress.env.json or cypress.env-example.json
         cy.visit(`${Cypress.env('baseUrl')}`);
         cy.get(webElements.header.nav.whatsNew).click();
-    });  
-    it('Should open', () => {     
+        cy.url({ timeout: 3000 }).should('include', '/what-is-new.html');
+    });
+    it("What's New Page", () => {   
         cy.get(webElements.title, { timeout: 3000 }).should('be.visible');
         cy.get(webElements.sidebar.main, { timeout: 3000 }).should('be.visible');
         cy.get(webElements.sidebar.additional, { timeout: 3000 }).should('be.visible');
